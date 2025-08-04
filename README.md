@@ -1,6 +1,6 @@
 # das-1-2025-2-B
 
-# AULA 31/07
+# AULA 31/07/2025
 
 ## Arquitetura de Código - Engenharia de Software Moderna(Cap.5)
 
@@ -28,3 +28,31 @@ Não é necessário (nem desejável) que todos os detalhes de um programa sejam 
 #### Vantagens:
     - Desenvolvimento em paralelo.
     - Flexibilidade a mudanças. -> a utilização de entidades, por exemplo, permite com que as entidades 'conversem' entre si sem exatamente acessar o código fonte uma da outra.
+    - Facilidade do Entendimento. -> Justamente por ser mais setorizado e definido, o entendimento se torna mais simples. Não é mais necessário ler todas as linhas do código para determinar os pontos de melhoria/ajustes.
+#### Getters e Setters
+Getters e Setters são funcionalidades utilizadas para realizar o encapsulamento do objeto, ou seja, proteger as informações quanto à integridade e consistência dos dados utilizados.
+
+
+# AULA 04/08/2025
+
+
+### Coesão
+É um atributo chave que faz parte do objetivo principal de todo o projeto. Toda a classe deve ser coesa, ou seja, deve implementar uma única funcionalidade. "Em um saco de farinha deve haver farinha, não açúcar".
+#### Vantagens:
+    - Facilidade no entendimento e manutenção;
+    - Facilita o compartilhamento de responsabilidades dentre as classes, aumentando a "resistência" do projeto como um todo;
+    - Facilita a reutilização e a realização de testes em uma classe específica.
+    - Um objeto desempenha uma função de forma otimizada e bem-feita. Anti-generalista.
+
+### Acoplamento
+O acoplamento é o nome dado ao fator força de ligação entre duas classes. Uma interface, por exemplo, é totalmente independente. Portanto, possui um baixo nível de acoplamento. Quanto maior for a conexão e dependência entre duas classes, maior será o nível de acoplamento entre elas. Isso faz com que qualquer alteração em uma das classes afetará diretamente a segunda. 
+Não é possível evitar totalmente o acoplamento, apenas minimizá-lo.
+#### Exemplo:
+    - Temos a classe A e classe B. A classe B tem um método exemplo(). A classe A acopla o método exemplo da classe B da seguinte forma:
+    - class A { private B b; public A (){ b = new B(); b.exemplo();}}
+#### OBS:
+Durante o código de FABSOFT, utilizamos a cláusula AUTOWIRED no springboot para minimizar o acoplamento. Isso cria um elemento intermediário entre a classe A e B, de forma com que A e B não saibam que, no fim das contas, estão acessando uma a outra.
+O AUTOWIRED utiliza uma terceira classe que atua como interface, apenas atuando como intermediária entre a classe que implementa os serviços e a classe que os "chama". Esse processo também é chamado de INJEÇÃO DE DEPENDÊNCIAS.
+Além disso, a utilização do Spring Data JPA nos possibilitou um baixo acoplamento com relação aos bancos de dados, porque permitiu com que utilizássemos qualquer banco de dados relacional apenas alterando o dialeto no arquivo de configurações.
+
+## MAXIMIZE A COESÃO E MINIMIZE O ACOPLAMENTO
