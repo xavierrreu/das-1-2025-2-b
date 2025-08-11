@@ -70,16 +70,15 @@ Além disso, a utilização do Spring Data JPA nos possibilitou um baixo acoplam
 #### Single Responsibility Principle
 O princípio da responsabilidade única é uma aplicação direta do conceito de coesão. A proposta é simples: toda a classe deve ter uma, e somente uma, responsabilidade. Além disso, é válido compreendermos o princípio por meio da seguinte frase 'Deve haver um único motivo para alterar uma classe no sistema'.
 #### Exemplo: A próxima classe ilustra uma violação do Princípio da Responsabilidade Única. O método calculaIndiceDesistencia da classe Disciplina possui duas responsabilidades: calcular o índice de desistência de uma disciplina e imprimi-lo no console do sistema.
--- 
--- class Disciplina {
--- 
---   void calculaIndiceDesistencia() {
---     indice = "calcula índice de desistência"
---     System.out.println(indice);
---   }
--- 
--- }
---
+
+    - class Disciplina {
+    -
+    -   void calculaIndiceDesistencia() {
+    -     indice = "calcula índice de desistência"
+    -     System.out.println(indice);
+    -   }
+    -
+    - }
 
 A solução seria segmentar a classe que realiza o cálculo do índice da classe que apresenta o resultado ao usuário na console.
 
