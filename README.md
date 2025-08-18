@@ -106,3 +106,11 @@ Conhecido como do menor conhecimento, defende que a implementação de um métod
 
 #### Open/Close Principle
 Uma classe deve estar fechada para modificações e aberta para extensões. Basicamente, eu preciso fazer com que a modificação seja dificultada no código fonte, mas devo permitir com que pessoas adicionem e customizem os objetos por meio de extensões, sem que a fonte do código seja afetada em si. Como se fossem novas camadas sobrepostas.
+
+#### Princípio da Substituição de Liskov
+O princípio de Liskov diz que, em caso de herança, todos os filhos devem implementar, no mínimo, exatamente todas os métodos da classe pai. Ou seja, se a classe pai tem os métodos A e B, o filho 01 DEVE implementar os métodos A e B e PODE implementar outros extras (c, e); e o filho 02 DEVE implementar os métodos A e B e PODE implementar outros  (d, f).
+A aplicação desse princípio faz com que seja possível realizar a troca dos filhos sem grandes perdas ou quebras no código, já que os métodos da classe pai sempre são implementados por todas as classes-filho.
+
+# AULA 18/08/2025
+### Padrões de Projetos (Design Patterns)
+São conjunto de soluções padrão para problemas comuns enfrentados em projetos de software.
