@@ -114,3 +114,4 @@ A aplicação desse princípio faz com que seja possível realizar a troca dos f
 # AULA 18/08/2025
 ### Padrões de Projetos (Design Patterns)
 São conjunto de soluções padrão para problemas comuns enfrentados em projetos de software.
+Site: https://refactoring.guru/design-patterns
