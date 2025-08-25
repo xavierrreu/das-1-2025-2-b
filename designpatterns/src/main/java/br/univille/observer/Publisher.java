@@ -3,33 +3,40 @@ import java.util.ArrayList;
 
 public class Publisher {
 
-    private ArrayList<Subscriber> subscribers = new ArrayList<>();
+    //private Subscriber[] subscribers = new Subscriber[10];           //esse código utiliza uma lista padrão. No caso, limitada a 10 posições.
+    private ArrayList<Subscriber> subscribers = new ArrayList<>();     //esse código utiliza o ArrayList, um lista com posições ILIMITADAS, essa é a principal diferença entre elas.
 
     private String mainState;
 
-    public Publisher subscribe(Subscriber s){
+
+    public String getMainState() {
+        return mainState;
+    }
+
+    public void setMainState(String mainState) {
+        this.mainState = mainState;
+    }
+
+    public void subscribe(Subscriber s){
         subscribers.add(s);
         for (int i = 0; i < subscribers.size(); i++) {
             System.out.println(subscribers.get(i));
         }
-        return this;
     }
     
-    public Publisher removeSubscriber(Subscriber s){
-        return null;
+    public void removeSubscriber(Subscriber s){
+        subscribers.remove(s);
     }
 
-    public Publisher notifySubscribers(){
-        for (Subscriber s : subscribers){
-            //envia notificacao
+    public void notifySubscribers(){
+        for (Subscriber s : subscribers){ //for each para percorrer a lista por completo e atualizar usuários, um por um.
+            s.update(mainState);
         }
-        return null;
     }
 
-    public Publisher mainBusinessLogic(){
+    public void mainBusinessLogic(){
         //var newState;
         //this.mainState=newState;
-        return null;
     }
 
 
