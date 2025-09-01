@@ -115,3 +115,38 @@ A aplicação desse princípio faz com que seja possível realizar a troca dos f
 ### Padrões de Projetos (Design Patterns)
 São conjunto de soluções padrão para problemas comuns enfrentados em projetos de software.
 Site: https://refactoring.guru/design-patterns
+
+# AULA 28/08/2025
+Arquitetura é sobre algo importante… seja lá o que for.
+
+— Ralph Johnson
+
+escrever uma arquitetura unicamente pela estrutura não exibe essa arquitetura em sua totalidade.“É uma arquitetura de microsserviços.” Nesse caso, o arquiteto fala apenas da estrutura do sistema, não da arquitetura do sistema.
+
+### Caracteristicas: 
+As características da arquitetura são outra dimensão da definição da arquitetura de software. As características definem os critérios de sucesso de um sistema, em geral ortogonal quanto à funcionalidade. Note que todas as características listadas não requerem conhecimento da funcionalidade do sistema, embora sejam necessárias para ele funcionar corretamente. - (Requisitos não duncionais).
+
+### Decisões de arquitetura: 
+É uma decição de qual modelo iremos utilizar para se trabalhar, onde buscamos escolher com base na maior familaridade com os prosutos de software e vuscamos agilidade e eficiencia na hora de fazer um modelo para se construir algo.(impedindo a camada de apresentação de fazer chamados diretos no banco de dados. As decisões da arquitetura formam os limites do sistema e orientam as equipes de desenvolvimento sobre o que é ou não permitido.)
+
+### Princios de desiner: 
+Impedindo a camada de apresentação de fazer chamados diretos no banco de dados. As decisões da arquitetura formam os limites do sistema e orientam as equipes de desenvolvimento sobre o que é ou não permitido.(Evitar o uso de acoplamento no desenvolvimento de software, utilização de mensagem assincrona entre os bancos de dados, utilizando uma boa pratica para evitar dependencias e maiores problemas)
+
+# AULA  01/09/2025
+
+## Expectativas de um Arquiteto
+    - Tomar decisões de arquitetura;
+    - Análise e melhoria contínua;
+    - Manter-se atualizado com as últimas tendências;
+    - Assegurar conformidade com as decisões;
+    - Exposição e eperiência diversificadas;
+    - Conhecimento sobre o domínio do negócio;
+    - Habilidades interpessoais;
+    - Entender e lidar bem com questões políticas
+Basicamente, um arquiteto é a ponte entre a parte política e gestacional da empresa e a parte técnica. Deve haver um perfil de melhoria conínua, análise de oportunidades, visão de negócio e ir sempre além do quesito técnico.
+Serve como o guia da equipe, é papel do arquiteto ser o tomador de decisões difíceis sobre questões críticas que direcionam o andamento do projeto/produto/serviço.
+
+## DEVOPS
+Filosofia ou área de atuação que tem como objetivo principal a maior agilidade e qualidade das entregas ao cliente final.
+
+### PLANEJAR -> CRIAR -> INTEGRAÇÃO CONTÍNUA - OPERAR - COMENTÁRIOS CONTÍNUOS
