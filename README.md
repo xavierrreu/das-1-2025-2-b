@@ -149,4 +149,21 @@ Serve como o guia da equipe, é papel do arquiteto ser o tomador de decisões di
 ## DEVOPS
 Filosofia ou área de atuação que tem como objetivo principal a maior agilidade e qualidade das entregas ao cliente final.
 
-### PLANEJAR -> CRIAR -> INTEGRAÇÃO CONTÍNUA - OPERAR - COMENTÁRIOS CONTÍNUOS
+### PLANEJAR -> CRIAR -> INTEGRAÇÃO CONTÍNUA -> OPERAR -> COMENTÁRIOS CONTÍNUOS
+
+
+# AULA 08/09/2025
+
+## Trade-Offs
+Trade-offs são trocas, ou seja, para todos os casos existe o lado bom e o lado ruim. Para cada parte de simplificação, existe, por exemplo, uma baixa na performance, ou algo nesse sentido.
+O trabalho do engenheiro de software é, exatamente, saber medir os prós e contras de cada tipo de arquitetura e utilizar o BOM SENSO e o conhecimento técnico para equilibrar os pontos bons e ruins, visando otimização da arquitetura com base nas regras de negócio e funcionalidades do sistema em específico.
+
+### Exemplo:
+       #### - Em um sistema de leilões de alta escala, não é viável utilizarmos modificações diretamente em banco, visto que a performance será irrisória.
+       #### - Em vez disso, podemos utilizar uma arquitetura similar ao design pattern 'Observer', porém entre máquinas distintas, na qual teremos um publisher, um tópico(broker) e diversos subscribers que receberão quaisquer atualizações feitas pelo publisher. (comunicação 1 para muitos).
+        --- OBS: importante ressaltar que os subscribers receberão as notificações de forma passiva, ou seja, sem buscar nada (push notifications).
+       #### - Outra alternativa é a utilização da arquitetura de filas. A diferença é que, dessa maneira, os receivers necessitam requisitar as mensagens à fila (pooling) para que as recebam. Além disso, existe uma ORDEM das menasgens e elas são ARMAZENADAS na fila e o sender (publicador) precisa mandar 1 cópia da mensagem para CADA FILA (relação 1 para 1).
+
+       #### DIFERENÇAS: na arquitetura de tópico temos um menor acoplamento entre os elementos, porém, a mensagem enviada pelo publisher precisa ser muito mais complexa e extensa, visto que deve ser geral e servir para N casos, independente do que eles requerirem. Já na arquitetura de filas existe um acoplamento maior, mas as mensagens enviadas pelo sender são menos complexas, mais enxutas e mais específicas para cada fila que é associada a um único receiver.
+
+       #### RESOLUÇÃO: FAN-OUT. Basicamente existe o publisher - > tópico -> (1 para muitos) N Filas -> (1 para 1) respecetivos receivers. Dessa forma temos menor acoplamento, ordenação das mensagens e armazenamento (buffer), mas ainda persistimos sem conseguir segregar mensagens especificas para cada receiver, todos vão receber todas.
