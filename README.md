@@ -167,3 +167,56 @@ O trabalho do engenheiro de software é, exatamente, saber medir os prós e cont
        #### DIFERENÇAS: na arquitetura de tópico temos um menor acoplamento entre os elementos, porém, a mensagem enviada pelo publisher precisa ser muito mais complexa e extensa, visto que deve ser geral e servir para N casos, independente do que eles requerirem. Já na arquitetura de filas existe um acoplamento maior, mas as mensagens enviadas pelo sender são menos complexas, mais enxutas e mais específicas para cada fila que é associada a um único receiver.
 
        #### RESOLUÇÃO: FAN-OUT. Basicamente existe o publisher - > tópico -> (1 para muitos) N Filas -> (1 para 1) respecetivos receivers. Dessa forma temos menor acoplamento, ordenação das mensagens e armazenamento (buffer), mas ainda persistimos sem conseguir segregar mensagens especificas para cada receiver, todos vão receber todas.
+
+# ---------------- SEGUNDO BIMESTRE --------------------
+# AULA 06/10/25
+
+## Definição das Características da Arquittura
+    Durante o levantamento de requisitos para a criação de um produto de software devem ser considerados diversos fatores, incluindo aqueles que não se relacionam diretamente com alguma funcionalidade específica. Por exemplo: Auditoria, Desempenho, Segurança, Requisitos, Dados, Legalidade, Escalabilidade, etc. Esses requisitos são chamados de *Características da Arquitetura*.
+    A Arquitetura, diferentemente da codificação e do design, têm como responsabilidade analisar o domínio do problema e, além disso, o domínio do negócio.
+
+    ### Critérios de uma característica da arquitetura:
+        - Especifica uma consideração de design fora do domínio;
+            - Em vez de requisitos específicos, uma característica comum da arquitetura especifica certo nível de desempenho esperado pela aplicação.
+
+        - Influencia algum aspecto estrutural de design;
+            - Características de arquitetura dessa classificação normalmente respondem à pergunta: "a característica da arquitetura requer uma consideração estrutural especial para ter sucesso?". Não definem o comportamento, mas adaptam áreas do produto para que a funcionalidade tenha sucesso.
+
+        - É essencial ou importante para o sucesso da aplicação
+            - Quanto mais características da arquitetura, mais complexidade e mais custo envolvido. Portano, uma das tarefas de um Arquiteto de Software deve ser minimizar as características de arquitetura em QUANTIDADE, mas maximizá-las em QUALIDADE.
+    
+    ### Características Operacionais da Arquitetura
+        São elas:
+            - Disponibilidade: por quanto tempo o sistema precisa ficar disponível (de forma ininterrúpta);
+            - Continuidade: capacidade de recuperação de desastres;
+            - Desempenho: testes de estresse, análise de pico, tempos de resposta, etc;
+            - Recuperabilidade: em caso de desastre, qual é o tempo necessário para que o sistema fique online novamente? Observa estratégias de backup, requisitos de hardware, etc;
+            - Confiabilidade/Segurança: Avalia se o sistema tem missão crítica na forma com a qual afeta as pessoas. Em caso de falha, a perda financeira significará quanto para a empresa?
+            - Robustez: capacidade de lidar com condições de erro e limites durante a conexão.
+            - Escalabilidade: capacidade de rodar e operar com um número elástico de usuários ativos.
+
+    ### Características Estruturais da Arquitetura
+        Os arquitetos também devem se preocupar com a estrutura do código. Muitas vezes o arquiteto tem uma única função na avaliação estrutural de um código, como verificação de taxas de acoplamento, código legível, etc. Abaixo estão alguns termos:
+            - Configuração: nível de autonomia que o usuário final tem de mudar os aspectos de configuração do software;
+            - Extensão: facilidade de integrar novas partes das funcionalidades;
+            - Instabilidade: Facilidade de instalação em diferentes plataformas;
+            - Aproveitamento: capacidade de utilizar os mesmos componentes para diversos produtos;
+            - Localização: suporte para vários idiomas nas telas de entrada, relatórios, requisitos de caracteres multibyte, unidades de medida, moedas, etc.
+            - Manutenção: manutenibilidade do sistema no geral;
+            - Portabilidade: capacidade de rodar em mais de uma plataforma (Oracle, SQLServer, SAP, etc);
+            - Suporte: qual nível de suporte é necessário pela aplicação?
+            - Atualização: capacidade de atualizar com facilidade/rapidez para versões diversas.
+
+    ### Características Transversais da Arquitetura
+        Características que não se encaixam em outras categorizações:
+            - Acessibilidade;
+            - Armazenamento: os dados precisarão ser excluídos após um período de tempo?
+            - Autenticação: requisitos de segurança para aferir a real identidade dos usuários;
+            - Autorização: requisitos de segurança para assegurar que os usuários acessem somente aquilo que precisam acessar. 
+            - Legalidade: restrições legais abordadas pelo produto de software;
+            - Privacidade: capacidade de ocultar as transações dos funcionários internos da empresa;
+            - Segurança: capacidade de criptografia dos dados;
+            - Suporte: nível de suporte necessário para a app;
+            - Usabilidade: nível de treinamento necessário para que os usuários de fato consigam utilizar o sistema de forma satisfatória. 
+
+#### É importante ressaltar que raramente os arquitetos encontram uma situação em que conseguem maximizar todas as características da arquitetura. Normalmente a escolha se basea na arquitetura "menos pior" dentre as possíveis.
