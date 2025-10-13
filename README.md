@@ -220,3 +220,25 @@ O trabalho do engenheiro de software é, exatamente, saber medir os prós e cont
             - Usabilidade: nível de treinamento necessário para que os usuários de fato consigam utilizar o sistema de forma satisfatória. 
 
 #### É importante ressaltar que raramente os arquitetos encontram uma situação em que conseguem maximizar todas as características da arquitetura. Normalmente a escolha se basea na arquitetura "menos pior" dentre as possíveis.
+
+# AULA 13/10/25
+## Design Pattern: CQRS (Command Query Responsibility Segregation)
+Basicamente, consiste em otimizar a aplicação para que se conecte em dois bancos de dados, ao invés de apenas 1. O ponto central é, justamente, termos um banco voltado para operações de escrita e outro apenas para leitura. 
+Essa política auxilia no load balance, performance e também na segurança geral do ambiente, de certa forma. Já que, caso haja problemas em um dos bancos, existe uma cópia em outro servidor para que seja utilizada enquanto a primeira é recuperada.
+O trade-off dessa arquitetura é, principalmente, o custo envolvido, já que os gastos com recursos para o banco de dados são duplicados.
+
+## Padrões Arquiteturais
+### A Grande Bola de Lama
+    - Basicamente é uma confusão de código mal estruturado, desleixado e unido com fita adesiva e arame. É um projeto que foi construído totalmente de modo orgânico, com reparos pontuais, sem padronização e organização.
+
+### Arquitetura Unitária
+    - Um software que é executado em um único servidor (computador). Gravação de software em CD para instalação local nas máquinas que seriam responsáveis por executar os programas.
+
+### Arquitetura Cliente/Servidor
+    - Exite um servidor e diversos clientes. Todas as operações nos clientes são validadas no servidor.
+
+### Arquitetura Desktop + servidor de banco de dados (database centric)
+    - Existe um servidor central que hospeda o banco e uma instalação específica em cada máquina de usuário final. Lógica está no banco.
+
+### Arquitetura Navegador + servidor web
+    - A diferença para a arquitetura anterior é que existe um servidor web que é acessado por todas as máquinas finais e que, por sua vez, acessava o banco. Lógica está no servidor web.
