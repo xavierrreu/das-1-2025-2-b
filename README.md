@@ -242,3 +242,23 @@ O trade-off dessa arquitetura é, principalmente, o custo envolvido, já que os 
 
 ### Arquitetura Navegador + servidor web
     - A diferença para a arquitetura anterior é que existe um servidor web que é acessado por todas as máquinas finais e que, por sua vez, acessava o banco. Lógica está no servidor web.
+
+# AULA 20/10/25
+## Arquitetura em Camadas
+Este é o estilo de arquitetura mais comum entre os existentes. É conhecido como "arquitetura natural" visto que, caso não haja planejamento algum e as equipes técnicas apenas começem a codificar, há grandes chances da arquitetura final ser essa.
+Os componentes são organizados em camadas horizontais, cada uma com sua função específica dentro da app. Mesmo que não haja um limite explícito, normalmente lidamos com 4 camadas:
+    - Apresentação - responsável por lidar com a interface do usuário e com a lógica de comunicação do navegador;
+    - Comercial - responsável por executar as regras comerciais específicas associadas à requisição;
+    - Persistência;
+    - Banco de Dados;
+O conceito de segmentação de responsabilidades é muito utilizado nesse estilo arquitetônico, visto que cada camada tem responsabilidades específicas e não precisa - nem deve - saber quais as demais responsabilidades e funções das outras camadas.
+
+### Camadas de Isolamento
+Cada camada no estilo de arquitetura em camadas pode ser fechada ou aberta. Por exemplo, em uma arquitetura de camadas fechadas, uma requisição com origem na camada de apresentação deve passar primeiro pela camada de negócio e depois pela camada de persistência antes de finalmente chegar na camada do banco de dados.
+Camadas de isolamento significa que as alterações feitas em uma camada da arquitetura normalmente não impactam nem afetam os componentes nas outras camadas, fazendo com que os contratos entre essas camadas continuem inalterados. Se a camada de apresentação puder acessar diretamente a camada de persistência, então as alterações feitas na camada de persistência impactariam a camada de negócio e a de apresentação, produzindo uma aplicação muito acoplado com interdependências das camadas entre os componentes. Esse tipo de arquitetura se torna muito frágil, difícil e caro de alterar.
+
+### Adicionando Camadas
+Se a camada de apresentação puder acessar diretamente a camada de persistência, então as alterações feitas na camada de persistência impactariam a camada de negócio e a de apresentação, produzindo uma aplicação muito acoplado com interdependências das camadas entre os componentes. Esse tipo de arquitetura se torna muito frágil, difícil e caro de alterar.
+
+### Por que utilizar?
+estilo de arquitetura em camadas é uma boa escolha para aplicações ou sites pequenos e simples. Também é uma boa escolha de arquitetura, em particular como um ponto de partida, para situações com um orçamento muito apertado e limites de tempo. Devido à simplicidade e à familiaridade entre desenvolvedores e arquitetos, essa arquitetura talvez seja um dos estilos de menor custo, promovendo a facilidade de desenvolvimento para aplicações menores. O estilo de arquitetura em camadas também é uma boa escolha quando o arquiteto ainda analisa as necessidades comerciais e os requisitos, e não tem certeza qual estilo seria melhor.
