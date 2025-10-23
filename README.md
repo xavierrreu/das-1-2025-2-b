@@ -243,6 +243,16 @@ O trade-off dessa arquitetura é, principalmente, o custo envolvido, já que os 
 ### Arquitetura Navegador + servidor web
     - A diferença para a arquitetura anterior é que existe um servidor web que é acessado por todas as máquinas finais e que, por sua vez, acessava o banco. Lógica está no servidor web.
 
+# AULA 16/10/25
+## Retry Pattern
+Consiste no padrão arquitetural desenvolvido pela Azure para que haja uma retentativa automática de processos que falharam anteriormente.
+Uma app que precisa se comunicar ou utiliza serviços em nuvem deve ser resistente a falhas temporárias, como problemas de conectividade, comunicação, instabilidades nos serviços em nuvem, etc. Normalmente esses problemas são solucionáveis e a simples ação de esperar alguns minutos e reexecutar o processo faz com que haja sucesso na execução.
+
+Para corrigir este problema, foram desenvolvidas algumas estratégias para o processo de reexecução:
+    - Cancelar: caso a falha demonstre que não será bem sucedida nas próximas execuções, o processo deverá ser cancelado e reportado;
+    - Reexecutar imediatamente: se a falha for rara, nunca ocorreu ou de natureza muito estranha o indicado é reexecutar imediatamente;
+    - Reexecutar após certo tempo: se a falha tem mais de uma causa raiz, o mais provável é que os serviços estejam passando por instabilidades, portanto, deve-se tentar novamente dentro de alguns minutos;
+
 # AULA 20/10/25
 ## Arquitetura em Camadas
 Este é o estilo de arquitetura mais comum entre os existentes. É conhecido como "arquitetura natural" visto que, caso não haja planejamento algum e as equipes técnicas apenas começem a codificar, há grandes chances da arquitetura final ser essa.
