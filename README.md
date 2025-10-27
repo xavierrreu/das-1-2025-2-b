@@ -272,3 +272,14 @@ Se a camada de apresentação puder acessar diretamente a camada de persistênci
 
 ### Por que utilizar?
 estilo de arquitetura em camadas é uma boa escolha para aplicações ou sites pequenos e simples. Também é uma boa escolha de arquitetura, em particular como um ponto de partida, para situações com um orçamento muito apertado e limites de tempo. Devido à simplicidade e à familiaridade entre desenvolvedores e arquitetos, essa arquitetura talvez seja um dos estilos de menor custo, promovendo a facilidade de desenvolvimento para aplicações menores. O estilo de arquitetura em camadas também é uma boa escolha quando o arquiteto ainda analisa as necessidades comerciais e os requisitos, e não tem certeza qual estilo seria melhor.
+
+# AULA 27/10/25
+## Arquitetura em Pipelines
+O conceito geral dessa arquitetura é: "temos diversos programas que, individualmente, possuem entrada e saída. Porém, cada módulo deve ser muito específico para uma determinada função. Entre esses módulos existem as pipelines (canos) que são utilizados para conectá-los. Portanto, em vez de escrevermos programas completos, utilizamos módulos prontos para montar o "quebra-cabeça".
+Basicamente, um módulo produz a informação para o próximo módulo e assim por diante. A saída de um módulo é, justamente, a entrada do módulo seguinte.
+    - CANAIS: são os conectores entre os módulos;
+    - FILTROS/COMPONENTES:
+        - Produtor: ponto de partida do processo, apenas produz uma saída;
+        - Transformador: Acaita a entrada e manipula os dados e então encaminha para a saída;
+        - Verificador: Aceita a entrada, faz alguns testes de aceitação e, opcionalmente, produz uma saída;
+        - Consumidor: Ponto de término do fluxo do pipeline. Podem enviar o resultado final para um banco de dados, demonstrar em tela, etc;
