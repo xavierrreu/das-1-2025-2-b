@@ -283,3 +283,17 @@ Basicamente, um módulo produz a informação para o próximo módulo e assim po
         - Transformador: Acaita a entrada e manipula os dados e então encaminha para a saída;
         - Verificador: Aceita a entrada, faz alguns testes de aceitação e, opcionalmente, produz uma saída;
         - Consumidor: Ponto de término do fluxo do pipeline. Podem enviar o resultado final para um banco de dados, demonstrar em tela, etc;
+
+# AULA 03/11/25 e 06/11/25
+## Arquitetura Microkernel
+Basicamente consiste em duas espécies distintas da aplicação: um sistema central e diversos sistemas "plug-in". A lógica da aplicação é dividida entre esses dois elementos, que normalmente são instalados diretamente nas máquinas dos usuários finais para utilização.
+Os componentes plug-in funcionam como extensões do sistema central, fornecendo adaptação e isolamento aos sistemas no geral.
+
+### Sistema Central
+É conhecido como a funcionalidade mínima necessária para operar o sistema, há pouco ou nenhum processamento personalizado. Dependendo da complexidade, o sistema central pode ser apresentado como um monolito ou pode utilizar a arquitetura em camadas.
+Por exemplo: um sistema de pagamentos teria a funcionlidade "efetuar pagamento" como o sistema central e as demais formas de pagamento devem ser distribuídas entre diversos sistemas plug-in.
+
+### Componentes de Plug-In
+Os componentes de plug-in devem ser totalmente independentes e autônomos, com processamento próprio e código especificamente trabalhado e customizado para executar a tarefa atribuída a ele.
+O canal de conexão entre os componentes de plug-in e o sistema central normalmente é uma chamada de função, método, etc.
+Assim como o estilo de arquitetura em camadas, simplicidade e custo geral são os principais pontos fortes do estilo de arquitetura microkernel; escalabilidade, tolerância a falhas e elasticidade são os principais pontos fracos. Essas fraquezas são devido às implementações monolíticas típicas encontradas na arquitetura microkernel. E mais, como a arquitetura em camadas, o número de quanta é sempre singular (um) porque todas as requisições devem passar pelo sistema central para chegarem aos componentes de plug-in independentes.
