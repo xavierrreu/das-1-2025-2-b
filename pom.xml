@@ -13,5 +13,8 @@
         <module>solid</module>
         <module>designpatterns</module>
         <module>eventos</module>
+        <module>mcrokernel-interface</module>
+        <module>mcrokernel-kernel</module>
+        <module>mcrokernel-plugin</module>
     </modules>
 </project>
