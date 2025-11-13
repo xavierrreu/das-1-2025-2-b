@@ -297,3 +297,5 @@ Por exemplo: um sistema de pagamentos teria a funcionlidade "efetuar pagamento" 
 Os componentes de plug-in devem ser totalmente independentes e autônomos, com processamento próprio e código especificamente trabalhado e customizado para executar a tarefa atribuída a ele.
 O canal de conexão entre os componentes de plug-in e o sistema central normalmente é uma chamada de função, método, etc.
 Assim como o estilo de arquitetura em camadas, simplicidade e custo geral são os principais pontos fortes do estilo de arquitetura microkernel; escalabilidade, tolerância a falhas e elasticidade são os principais pontos fracos. Essas fraquezas são devido às implementações monolíticas típicas encontradas na arquitetura microkernel. E mais, como a arquitetura em camadas, o número de quanta é sempre singular (um) porque todas as requisições devem passar pelo sistema central para chegarem aos componentes de plug-in independentes.
+
+# AULA 10/11/25
